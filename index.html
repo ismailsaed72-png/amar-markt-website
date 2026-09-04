@@ -11,7 +11,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-<style>
+<style> /* استدعاء خط Cairo من Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap');
+
+/* تطبيق الخط العربي على كافة عناصر الموقع */
+body, h1, h2, h3, h4, h5, h6, p, a, span, button, input {
+    font-family: 'Cairo', sans-serif !important;
+}
 :root{
   --navy:#071a35;
   --navy2:#0d2c52;
