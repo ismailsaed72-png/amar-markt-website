@@ -1,0 +1,2073 @@
+ <!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#071a35">
+<meta name="description" content="AMAR MARKT – ماركت عمار في Neumünster. مواد غذائية عربية وآسيوية، لحوم حلال، أرز، بقوليات، بهارات وزيوت.">
+<title>AMAR MARKT | ماركت عمار</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --navy:#071a35;
+  --navy2:#0d2c52;
+  --gold:#d7aa45;
+  --gold2:#f3d47d;
+  --bg:#f6f8fb;
+  --white:#fff;
+  --ink:#172033;
+  --muted:#6b7586;
+  --line:#e5eaf1;
+  --success:#198754;
+  --danger:#d9363e;
+  --radius:22px;
+  --shadow:0 18px 55px rgba(7,26,53,.11);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:"Cairo",Arial,sans-serif;
+  color:var(--ink);
+  background:var(--bg);
+}
+body.modal-open{overflow:hidden}
+a{text-decoration:none;color:inherit}
+button,input,textarea,select{font:inherit}
+button{cursor:pointer}
+img{max-width:100%;display:block}
+
+.container{
+  width:min(1180px,calc(100% - 32px));
+  margin:auto;
+}
+
+.topbar{
+  background:var(--navy);
+  color:#fff;
+  font-size:13px;
+}
+.topbar-inner{
+  min-height:40px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+}
+.topbar a{color:var(--gold2)}
+
+header{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:rgba(255,255,255,.94);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(7,26,53,.08);
+}
+
+.nav{
+  min-height:82px;
+  display:flex;
+  align-items:center;
+  gap:18px;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:11px;
+  margin-left:auto;
+}
+.brand img{
+  width:58px;
+  height:58px;
+  object-fit:contain;
+  border-radius:15px;
+}
+.brand b{
+  display:block;
+  color:var(--navy);
+  font-size:17px;
+  line-height:1.2;
+}
+.brand small{
+  color:var(--gold);
+  font-weight:900;
+  font-size:13px;
+}
+
+.nav-links{
+  display:flex;
+  gap:4px;
+}
+.nav-links a{
+  padding:10px 12px;
+  border-radius:12px;
+  font-weight:800;
+  font-size:14px;
+  transition:.2s;
+}
+.nav-links a:hover{
+  background:#eef2f7;
+  color:var(--navy);
+}
+
+.actions{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  margin-right:auto;
+}
+.lang-btn,
+.cart-btn,
+.menu-btn{
+  border:1px solid var(--line);
+  background:#fff;
+  color:var(--navy);
+  border-radius:12px;
+  padding:8px 10px;
+  font-weight:900;
+}
+.lang-btn.active{
+  background:var(--navy);
+  color:#fff;
+}
+.cart-btn{
+  position:relative;
+  background:var(--gold);
+  border-color:var(--gold);
+}
+.cart-count{
+  position:absolute;
+  top:-8px;
+  left:-8px;
+  width:23px;
+  height:23px;
+  border-radius:50%;
+  background:var(--danger);
+  color:#fff;
+  display:grid;
+  place-items:center;
+  font-size:11px;
+}
+.menu-btn{display:none}
+
+.hero{
+  min-height:680px;
+  display:grid;
+  place-items:center;
+  text-align:center;
+  color:#fff;
+  background:
+    linear-gradient(90deg,rgba(3,17,38,.96),rgba(7,26,53,.56),rgba(3,17,38,.94)),
+    url("store-hero.jpg") center/cover no-repeat;
+}
+.hero-inner{
+  padding:105px 0;
+}
+.hero-logo{
+  width:105px;
+  height:105px;
+  object-fit:contain;
+  margin:0 auto 20px;
+  filter:drop-shadow(0 15px 30px rgba(0,0,0,.5));
+}
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  padding:8px 16px;
+  border-radius:999px;
+  background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.25);
+  font-weight:900;
+}
+.hero h1{
+  margin:20px 0 15px;
+  font-size:clamp(38px,6vw,70px);
+  line-height:1.08;
+}
+.hero h1 .gold-text{color:var(--gold2)}
+.hero p{
+  max-width:790px;
+  margin:0 auto 28px;
+  line-height:2;
+  font-size:18px;
+  color:#eef3fa;
+}
+
+.buttons{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  border:0;
+  border-radius:14px;
+  padding:12px 19px;
+  font-weight:900;
+  transition:.2s;
+}
+.btn:hover{transform:translateY(-2px)}
+.btn-gold{
+  background:var(--gold);
+  color:var(--ink);
+}
+.btn-white{
+  background:#fff;
+  color:var(--navy);
+}
+.btn-dark{
+  background:var(--navy);
+  color:#fff;
+}
+.btn-outline{
+  background:transparent;
+  color:#fff;
+  border:1px solid rgba(255,255,255,.5);
+}
+
+.section{
+  padding:82px 0;
+}
+.section-head{
+  text-align:center;
+  margin-bottom:35px;
+}
+.section-head .eyebrow{
+  color:var(--gold);
+  font-weight:900;
+}
+.section-head h2{
+  color:var(--navy);
+  font-size:clamp(29px,4vw,44px);
+  margin:5px 0 8px;
+}
+.section-head p{
+  max-width:730px;
+  margin:auto;
+  color:var(--muted);
+  line-height:1.9;
+}
+
+.grid-2{
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:24px;
+}
+.card{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  overflow:hidden;
+}
+.about-card{padding:34px}
+.about-card h3{
+  color:var(--navy);
+  font-size:27px;
+  margin:0 0 10px;
+}
+.about-card p{
+  color:#596477;
+  line-height:2;
+}
+.check-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin-top:20px;
+}
+.check{
+  padding:13px;
+  background:#f5f7fa;
+  border-radius:14px;
+  font-weight:900;
+}
+.store-photo{
+  min-height:380px;
+}
+.store-photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.video-wrap{
+  background:var(--navy);
+  border-radius:var(--radius);
+  overflow:hidden;
+  box-shadow:var(--shadow);
+}
+.video-wrap video{
+  display:block;
+  width:100%;
+  max-height:620px;
+  object-fit:cover;
+}
+
+.categories{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+}
+.category{
+  height:245px;
+  position:relative;
+  border:0;
+  border-radius:20px;
+  overflow:hidden;
+  background:var(--navy);
+  color:#fff;
+  padding:0;
+  text-align:right;
+  box-shadow:var(--shadow);
+}
+.category img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:.35s;
+}
+.category::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(0deg,rgba(3,17,38,.94),rgba(3,17,38,.04));
+}
+.category:hover img{
+  transform:scale(1.07);
+}
+.category-content{
+  position:absolute;
+  z-index:2;
+  right:18px;
+  left:18px;
+  bottom:17px;
+}
+.category h3{
+  margin:0;
+  font-size:21px;
+}
+.category p{
+  margin:4px 0 0;
+  color:#dfe7f0;
+  font-size:12px;
+}
+
+.search-box{
+  max-width:720px;
+  display:flex;
+  gap:8px;
+  margin:0 auto 28px;
+}
+.search-box input{
+  flex:1;
+  min-width:0;
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:13px 15px;
+  background:#fff;
+  outline:0;
+}
+.search-box input:focus{
+  border-color:var(--gold);
+  box-shadow:0 0 0 3px rgba(215,170,69,.15);
+}
+
+.products{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:17px;
+}
+.product{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:19px;
+  overflow:hidden;
+  box-shadow:0 10px 30px rgba(7,26,53,.07);
+  transition:.2s;
+}
+.product:hover{
+  transform:translateY(-3px);
+  box-shadow:0 18px 40px rgba(7,26,53,.12);
+}
+.product-image{
+  height:185px;
+  background:#eef1f5;
+}
+.product-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+.product-body{
+  padding:15px;
+}
+.product-body h4{
+  margin:0 0 4px;
+  color:var(--navy);
+}
+.product-body p{
+  margin:0 0 11px;
+  color:var(--muted);
+  font-size:12px;
+}
+.product-body .btn{
+  width:100%;
+  padding:10px;
+}
+
+.features{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+.feature{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:19px;
+  padding:28px;
+}
+.feature-icon{
+  font-size:28px;
+  margin-bottom:10px;
+}
+.feature h3{
+  color:var(--navy);
+  margin:0 0 6px;
+}
+.feature p{
+  margin:0;
+  color:var(--muted);
+  line-height:1.9;
+}
+
+.contact{
+  display:grid;
+  grid-template-columns:.82fr 1.18fr;
+  gap:23px;
+}
+.contact-card{
+  padding:27px;
+}
+.contact-item{
+  display:flex;
+  gap:12px;
+  padding:15px 0;
+  border-bottom:1px solid var(--line);
+}
+.contact-item:last-child{border-bottom:0}
+.contact-item-icon{font-size:21px}
+.contact-item b{
+  display:block;
+  color:var(--navy);
+}
+.contact-item span{
+  color:var(--muted);
+  font-size:14px;
+}
+.contact-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:9px;
+  margin-top:16px;
+}
+.map-card{
+  padding:9px;
+}
+.map{
+  width:100%;
+  height:410px;
+  border:0;
+  border-radius:16px;
+}
+
+footer{
+  background:var(--navy);
+  color:#c5d0df;
+  padding:45px 0 18px;
+}
+.footer-grid{
+  display:grid;
+  grid-template-columns:1.3fr 1fr 1fr;
+  gap:28px;
+}
+footer h3{color:#fff}
+footer p{
+  line-height:1.9;
+}
+footer a:hover{color:var(--gold2)}
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,.12);
+  margin-top:27px;
+  padding-top:16px;
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  font-size:12px;
+}
+
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:100;
+  background:rgba(3,17,38,.74);
+  padding:16px;
+  align-items:center;
+  justify-content:center;
+}
+.modal.show{display:flex}
+.modal-box{
+  width:min(980px,100%);
+  max-height:91vh;
+  overflow:auto;
+  background:#fff;
+  border-radius:23px;
+}
+.modal-head{
+  position:sticky;
+  top:0;
+  z-index:2;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:17px 20px;
+  background:#fff;
+  border-bottom:1px solid var(--line);
+}
+.modal-head h3{
+  margin:0;
+  color:var(--navy);
+}
+.close-btn{
+  width:39px;
+  height:39px;
+  border:1px solid var(--line);
+  background:#fff;
+  border-radius:11px;
+  font-size:23px;
+}
+.modal-body{padding:20px}
+
+.modal-products{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+}
+
+.cart-row{
+  display:grid;
+  grid-template-columns:72px 1fr auto;
+  gap:12px;
+  align-items:center;
+  border:1px solid var(--line);
+  border-radius:15px;
+  padding:9px;
+  margin-bottom:10px;
+}
+.cart-row img{
+  width:72px;
+  height:72px;
+  object-fit:cover;
+  border-radius:11px;
+}
+.cart-row b{color:var(--navy)}
+.cart-row small{
+  display:block;
+  color:var(--muted);
+  margin-top:3px;
+}
+.qty{
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+.qty button{
+  width:31px;
+  height:31px;
+  border:1px solid var(--line);
+  background:#fff;
+  border-radius:8px;
+}
+.remove{
+  border:0!important;
+  background:#fff1f2!important;
+  color:var(--danger);
+}
+.summary{
+  background:#f6f8fb;
+  border-radius:17px;
+  padding:17px;
+  margin-top:17px;
+}
+.field{margin-bottom:11px}
+.field label{
+  display:block;
+  font-size:12px;
+  font-weight:900;
+  color:var(--navy);
+  margin-bottom:5px;
+}
+.field input,
+.field textarea,
+.field select{
+  width:100%;
+  border:1px solid #dce3eb;
+  border-radius:11px;
+  padding:11px;
+  background:#fff;
+  outline:0;
+}
+.field input:focus,
+.field textarea:focus,
+.field select:focus{
+  border-color:var(--gold);
+  box-shadow:0 0 0 3px rgba(215,170,69,.14);
+}
+.field textarea{min-height:90px;resize:vertical}
+.form-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+.full{grid-column:1/-1}
+.notice{
+  padding:12px;
+  border-radius:11px;
+  background:#fff3cf;
+  color:#74560b;
+  font-weight:900;
+  margin-bottom:12px;
+}
+.empty{
+  padding:30px;
+  text-align:center;
+  background:#f7f9fb;
+  border-radius:15px;
+  color:var(--muted);
+  font-weight:900;
+}
+.hidden{display:none!important}
+
+@media(max-width:1000px){
+  .nav-links{display:none}
+  .menu-btn{display:block}
+  .nav.mobile-open{
+    flex-wrap:wrap;
+    padding:10px 0;
+  }
+  .nav.mobile-open .nav-links{
+    display:flex;
+    order:10;
+    width:100%;
+    flex-direction:column;
+  }
+  .categories{grid-template-columns:repeat(2,1fr)}
+  .products{grid-template-columns:repeat(2,1fr)}
+  .grid-2,.contact{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+
+@media(max-width:650px){
+  .container{width:min(100% - 22px,1180px)}
+  .topbar-inner{min-height:35px}
+  .topbar .desktop-info{display:none}
+  .nav{min-height:70px}
+  .brand img{width:48px;height:48px}
+  .brand b{font-size:14px}
+  .brand small{font-size:11px}
+  .lang-btn,.cart-btn,.menu-btn{padding:7px 8px}
+  .hero{min-height:620px}
+  .hero-inner{padding:90px 0}
+  .hero-logo{width:84px;height:84px}
+  .hero p{font-size:16px}
+  .section{padding:60px 0}
+  .categories,
+  .products,
+  .features,
+  .modal-products{
+    grid-template-columns:1fr;
+  }
+  .check-grid,
+  .form-grid{
+    grid-template-columns:1fr;
+  }
+  .full{grid-column:auto}
+  .footer-grid{grid-template-columns:1fr}
+  .footer-bottom{
+    flex-direction:column;
+  }
+  .cart-row{
+    grid-template-columns:58px 1fr;
+  }
+  .cart-row img{
+    width:58px;
+    height:58px;
+  }
+  .qty{
+    grid-column:1/-1;
+    justify-content:flex-end;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{
+    transition:none!important;
+    animation:none!important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="topbar">
+  <div class="container topbar-inner">
+    <span>🛒 <span data-t="top">ماركت عمار – مواد غذائية عربية وآسيوية</span></span>
+    <span class="desktop-info">📍 Kuhberg 12, 24534 Neumünster</span>
+  </div>
+</div>
+
+<header>
+  <div class="container nav" id="nav">
+
+    <a class="brand" href="#home" aria-label="AMAR MARKT">
+      <img src="logo.png" alt="AMAR MARKT Logo">
+      <span>
+        <b>AMAR MARKT</b>
+        <small>ماركت عمار</small>
+      </span>
+    </a>
+
+    <nav class="nav-links" aria-label="Navigation">
+      <a href="#home" data-t="home">الرئيسية</a>
+      <a href="#about" data-t="about">من نحن</a>
+      <a href="#shop" data-t="shop">المتجر</a>
+      <a href="#media" data-t="media">الصور والفيديو</a>
+      <a href="#contact" data-t="contact">اتصل بنا</a>
+    </nav>
+
+    <div class="actions">
+      <button class="lang-btn active" data-lang="ar">AR</button>
+      <button class="lang-btn" data-lang="tr">TR</button>
+      <button class="lang-btn" data-lang="de">DE</button>
+
+      <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
+
+      <button class="cart-btn" id="cartBtn">
+        🛒 <span data-t="cart">السلة</span>
+        <i class="cart-count" id="cartCount">0</i>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<main id="home">
+
+<section class="hero">
+  <div class="container hero-inner">
+
+    <img class="hero-logo" src="logo.png" alt="AMAR MARKT">
+
+    <div class="badge" data-t="welcome">
+      ✨ أهلاً بكم في ماركت عمار
+    </div>
+
+    <h1>
+      <span>AMAR MARKT</span><br>
+      <span class="gold-text" data-t="heroTitle">
+        كل ما تحبّه من المطبخ العربي والشرقي
+      </span>
+    </h1>
+
+    <p data-t="heroText">
+      مواد غذائية عربية وآسيوية، لحوم حلال، خضار وفواكه، ألبان وأجبان وتشكيلة يومية مختارة بعناية.
+    </p>
+
+    <div class="buttons">
+      <a class="btn btn-gold" href="#shop" data-t="browse">
+        🛒 تصفح المنتجات
+      </a>
+
+      <a class="btn btn-white" href="#contact" data-t="directions">
+        📍 الوصول إلى المتجر
+      </a>
+
+      <a
+        class="btn btn-outline"
+        href="https://www.facebook.com/alfayhaa.market/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Facebook
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="container">
+
+    <div class="section-head">
+      <div class="eyebrow">AMAR MARKT</div>
+      <h2 data-t="aboutTitle">سوقك العربي في نيومونستر</h2>
+      <p data-t="aboutText">
+        مواد غذائية عربية وآسيوية، لحوم حلال، خضار وفواكه ومشتقات الألبان في مكان واحد.
+      </p>
+    </div>
+
+    <div class="grid-2">
+
+      <div class="card about-card">
+        <h3 data-t="quality">
+          اختيار متنوع وجودة يومية
+        </h3>
+
+        <p data-t="qualityText">
+          تشكيلة من المكونات الشرقية والتوابل والأرز والبقوليات واللحوم الحلال لتلبية احتياجات الأسرة.
+        </p>
+
+        <div class="check-grid">
+          <div class="check">🥩 <span data-t="meat">لحوم حلال</span></div>
+          <div class="check">🥬 <span data-t="produce">خضار وفواكه</span></div>
+          <div class="check">🌾 <span data-t="rice">أرز وبقوليات</span></div>
+          <div class="check">🧀 <span data-t="dairy">ألبان وأجبان</span></div>
+        </div>
+      </div>
+
+      <div class="card store-photo">
+        <img src="store-hero.jpg" alt="AMAR MARKT Store">
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section" id="media" style="padding-top:0">
+  <div class="container">
+
+    <div class="section-head">
+      <div class="eyebrow">MEDIA</div>
+      <h2 data-t="mediaTitle">شاهد المتجر</h2>
+      <p data-t="mediaText">
+        الفيديو الموجود باسم store-video.mp4 سيظهر هنا تلقائياً.
+      </p>
+    </div>
+
+    <div class="video-wrap">
+      <video
+        controls
+        preload="metadata"
+        poster="store-hero.jpg"
+        playsinline
+      >
+        <source src="store-video.mp4" type="video/mp4">
+        Your browser does not support video.
+      </video>
+    </div>
+
+  </div>
+</section>
+
+<section class="section" id="shop">
+  <div class="container">
+
+    <div class="section-head">
+      <div class="eyebrow">SHOP</div>
+      <h2 data-t="catTitle">تسوق حسب القسم</h2>
+      <p data-t="catText">
+        اضغط على القسم لفتح المنتجات وإضافتها إلى السلة.
+      </p>
+    </div>
+
+    <div class="categories" id="categories"></div>
+
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="container">
+
+    <div class="section-head">
+      <div class="eyebrow">PRODUCTS</div>
+      <h2 data-t="popular">منتجات مختارة</h2>
+    </div>
+
+    <div class="search-box">
+      <input
+        id="search"
+        type="search"
+        data-ph="search"
+        placeholder="ابحث عن منتج..."
+        autocomplete="off"
+      >
+      <button class="btn btn-gold" type="button">🔎</button>
+    </div>
+
+    <div class="products" id="products"></div>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+
+    <div class="section-head">
+      <div class="eyebrow">WHY US</div>
+      <h2 data-t="why">لماذا ماركت عمار؟</h2>
+    </div>
+
+    <div class="features">
+
+      <div class="feature">
+        <div class="feature-icon">🌙</div>
+        <h3 data-t="f1h">منتجات حلال</h3>
+        <p data-t="f1p">
+          تشكيلة من اللحوم والمواد الغذائية المناسبة للمطبخ الشرقي.
+        </p>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">🥗</div>
+        <h3 data-t="f2h">اختيارات طازجة</h3>
+        <p data-t="f2p">
+          خضار وفواكه ومنتجات يومية للأسرة.
+        </p>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">🧺</div>
+        <h3 data-t="f3h">تشكيلة شرقية</h3>
+        <p data-t="f3p">
+          توابل وأرز وبقوليات وألبان وأجبان ومنتجات عربية وآسيوية.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <div class="container">
+
+    <div class="section-head">
+      <div class="eyebrow">CONTACT</div>
+      <h2 data-t="contactTitle">زورونا في نيومونستر</h2>
+    </div>
+
+    <div class="contact">
+
+      <div class="card contact-card">
+
+        <div class="contact-item">
+          <div class="contact-item-icon">📍</div>
+          <div>
+            <b data-t="address">العنوان</b>
+            <span>Kuhberg 12, 24534 Neumünster</span>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-item-icon">🕘</div>
+          <div>
+            <b data-t="hours">مواعيد العمل</b>
+            <span>Montag – Samstag: 08:00 – 20:00</span>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-item-icon">📞</div>
+          <div>
+            <b data-t="phone">الهاتف</b>
+            <span>
+              <a href="tel:+4915781160149">+49 1578 1160149</a>
+            </span>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-item-icon">📘</div>
+          <div>
+            <b>Facebook</b>
+            <span>
+              <a
+                href="https://www.facebook.com/alfayhaa.market/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                AMAR MARKT
+              </a>
+            </span>
+          </div>
+        </div>
+
+        <div class="contact-actions">
+
+          <a
+            class="btn btn-gold"
+            href="https://www.google.com/maps/dir/?api=1&destination=Kuhberg%2012%2C%2024534%20Neum%C3%BCnster"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-t="route"
+          >
+            🧭 ابدأ الطريق
+          </a>
+
+          <a
+            class="btn btn-dark"
+            href="https://www.google.com/maps/search/?api=1&query=Kuhberg%2012%2C%2024534%20Neum%C3%BCnster"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-t="mapOpen"
+          >
+            🗺️ فتح الخريطة
+          </a>
+
+        </div>
+
+      </div>
+
+      <div class="card map-card">
+        <iframe
+          class="map"
+          loading="lazy"
+          title="AMAR MARKT Google Maps"
+          src="https://www.google.com/maps?q=Kuhberg%2012%2C%2024534%20Neum%C3%BCnster&output=embed"
+        ></iframe>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+
+    <div class="footer-grid">
+
+      <div>
+        <h3>AMAR MARKT</h3>
+        <p data-t="footerText">
+          ماركت عمار – وجهتك للمواد الغذائية العربية والآسيوية في Neumünster.
+        </p>
+      </div>
+
+      <div>
+        <h3 data-t="quick">روابط سريعة</h3>
+        <p>
+          <a href="#home" data-t="home">الرئيسية</a><br>
+          <a href="#about" data-t="about">من نحن</a><br>
+          <a href="#shop" data-t="shop">المتجر</a><br>
+          <a href="#contact" data-t="contact">اتصل بنا</a>
+        </p>
+      </div>
+
+      <div>
+        <h3 data-t="follow">تابعنا</h3>
+        <p>
+          <a
+            href="https://www.facebook.com/alfayhaa.market/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Facebook
+          </a>
+          <br>
+          Kuhberg 12
+          <br>
+          24534 Neumünster
+          <br>
+          +49 1578 1160149
+        </p>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> AMAR MARKT</span>
+      <span data-t="legal">جميع الحقوق محفوظة.</span>
+    </div>
+
+  </div>
+</footer>
+
+<!-- CATEGORY MODAL -->
+<div class="modal" id="productModal">
+  <div class="modal-box">
+
+    <div class="modal-head">
+      <h3 id="modalTitle"></h3>
+      <button class="close-btn" data-close="productModal">×</button>
+    </div>
+
+    <div class="modal-body">
+      <div class="modal-products" id="modalProducts"></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- CART MODAL -->
+<div class="modal" id="cartModal">
+  <div class="modal-box">
+
+    <div class="modal-head">
+      <h3 data-t="cartTitle">سلة المشتريات</h3>
+      <button class="close-btn" data-close="cartModal">×</button>
+    </div>
+
+    <div class="modal-body">
+
+      <div id="cartList"></div>
+
+      <div class="summary">
+
+        <div class="field">
+          <label data-t="orderValue">قيمة الطلب (€)</label>
+          <input
+            id="orderValue"
+            type="number"
+            min="0"
+            step="0.01"
+            placeholder="45"
+          >
+        </div>
+
+        <div class="field">
+          <label data-t="orderType">طريقة الاستلام</label>
+
+          <select id="orderType">
+            <option value="pickup" data-t="pickup">
+              استلام من المتجر
+            </option>
+
+            <option value="delivery" data-t="delivery">
+              توصيل
+            </option>
+          </select>
+        </div>
+
+        <div
+          id="deliveryNotice"
+          class="notice hidden"
+          data-t="deliveryNotice"
+        >
+          للتوصيل يجب أن تكون قيمة الطلب 40 € على الأقل.
+        </div>
+
+        <div class="form-grid">
+
+          <div class="field">
+            <label data-t="name">الاسم</label>
+            <input id="customerName" type="text" autocomplete="name">
+          </div>
+
+          <div class="field">
+            <label data-t="phoneField">رقم الهاتف</label>
+            <input id="customerPhone" type="tel" autocomplete="tel">
+          </div>
+
+          <div class="field full">
+            <label data-t="addrField">العنوان</label>
+            <input id="customerAddress" type="text" autocomplete="street-address">
+          </div>
+
+          <div class="field full">
+            <label data-t="notes">ملاحظات</label>
+            <textarea id="customerNotes"></textarea>
+          </div>
+
+        </div>
+
+        <div class="buttons" style="justify-content:flex-start">
+
+          <button class="btn btn-dark" id="facebookOrder">
+            📘 <span data-t="sendFacebook">
+              التواصل عبر Facebook
+            </span>
+          </button>
+
+          <button class="btn" id="clearCart" style="background:#eef2f7">
+            🗑️ <span data-t="clear">تفريغ السلة</span>
+          </button>
+
+        </div>
+
+        <p style="font-size:12px;color:#6b7586;margin-bottom:0" data-t="orderNote">
+          ملاحظة: لم يتم وضع أسعار افتراضية. اكتب قيمة الطلب الفعلية قبل الإرسال.
+        </p>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+const TRANSLATIONS = {
+
+ar:{
+top:"ماركت عمار – مواد غذائية عربية وآسيوية",
+home:"الرئيسية",
+about:"من نحن",
+shop:"المتجر",
+media:"الصور والفيديو",
+contact:"اتصل بنا",
+cart:"السلة",
+welcome:"✨ أهلاً بكم في ماركت عمار",
+heroTitle:"كل ما تحبّه من المطبخ العربي والشرقي",
+heroText:"مواد غذائية عربية وآسيوية، لحوم حلال، خضار وفواكه، ألبان وأجبان وتشكيلة يومية مختارة بعناية.",
+browse:"🛒 تصفح المنتجات",
+directions:"📍 الوصول إلى المتجر",
+aboutTitle:"سوقك العربي في نيومونستر",
+aboutText:"مواد غذائية عربية وآسيوية، لحوم حلال، خضار وفواكه ومشتقات الألبان في مكان واحد.",
+quality:"اختيار متنوع وجودة يومية",
+qualityText:"تشكيلة من المكونات الشرقية والتوابل والأرز والبقوليات واللحوم الحلال لتلبية احتياجات الأسرة.",
+meat:"لحوم حلال",
+produce:"خضار وفواكه",
+rice:"أرز وبقوليات",
+dairy:"ألبان وأجبان",
+mediaTitle:"شاهد المتجر",
+mediaText:"الفيديو الموجود باسم store-video.mp4 سيظهر هنا تلقائياً.",
+catTitle:"تسوق حسب القسم",
+catText:"اضغط على القسم لفتح المنتجات وإضافتها إلى السلة.",
+popular:"منتجات مختارة",
+search:"ابحث عن منتج...",
+why:"لماذا ماركت عمار؟",
+f1h:"منتجات حلال",
+f1p:"تشكيلة من اللحوم والمواد الغذائية المناسبة للمطبخ الشرقي.",
+f2h:"اختيارات طازجة",
+f2p:"خضار وفواكه ومنتجات يومية للأسرة.",
+f3h:"تشكيلة شرقية",
+f3p:"توابل وأرز وبقوليات وألبان وأجبان ومنتجات عربية وآسيوية.",
+contactTitle:"زورونا في نيومونستر",
+address:"العنوان",
+hours:"مواعيد العمل",
+phone:"الهاتف",
+route:"🧭 ابدأ الطريق",
+mapOpen:"🗺️ فتح الخريطة",
+footerText:"ماركت عمار – وجهتك للمواد الغذائية العربية والآسيوية في Neumünster.",
+quick:"روابط سريعة",
+follow:"تابعنا",
+legal:"جميع الحقوق محفوظة.",
+cartTitle:"سلة المشتريات",
+orderValue:"قيمة الطلب (€)",
+orderType:"طريقة الاستلام",
+pickup:"استلام من المتجر",
+delivery:"توصيل",
+deliveryNotice:"للتوصيل يجب أن تكون قيمة الطلب 40 € على الأقل.",
+name:"الاسم",
+phoneField:"رقم الهاتف",
+addrField:"العنوان",
+notes:"ملاحظات",
+sendFacebook:"التواصل عبر Facebook",
+clear:"تفريغ السلة",
+orderNote:"ملاحظة: لم يتم وضع أسعار افتراضية. اكتب قيمة الطلب الفعلية قبل الإرسال.",
+add:"إضافة للسلة",
+price:"السعر حسب المتجر",
+empty:"السلة فارغة.",
+items:"منتجات",
+remove:"حذف"
+},
+
+tr:{
+top:"AMAR MARKT – Arap ve Asya gıda ürünleri",
+home:"Ana Sayfa",
+about:"Hakkımızda",
+shop:"Mağaza",
+media:"Fotoğraf & Video",
+contact:"İletişim",
+cart:"Sepet",
+welcome:"✨ AMAR MARKT'e hoş geldiniz",
+heroTitle:"Arap ve Doğu mutfağının sevilen ürünleri",
+heroText:"Arap ve Asya gıdaları, helal et, meyve-sebze ve süt ürünleri.",
+browse:"🛒 Ürünleri incele",
+directions:"📍 Mağazaya yol tarifi",
+aboutTitle:"Neumünster'deki Arap marketiniz",
+aboutText:"Arap ve Asya ürünleri, helal et, meyve-sebze ve süt ürünleri.",
+quality:"Çeşitli ürünler, günlük kalite",
+qualityText:"Baharat, pirinç, bakliyat ve helal et seçenekleri.",
+meat:"Helal et",
+produce:"Meyve & sebze",
+rice:"Pirinç & bakliyat",
+dairy:"Süt & peynir",
+mediaTitle:"Mağazayı keşfedin",
+mediaText:"Video store-video.mp4 adıyla index.html dosyasının yanında bulunmalıdır.",
+catTitle:"Kategoriye göre alışveriş",
+catText:"Kategoriye tıklayarak ürünleri açın ve sepete ekleyin.",
+popular:"Seçili ürünler",
+search:"Ürün ara...",
+why:"Neden AMAR MARKT?",
+f1h:"Helal ürünler",
+f1p:"Doğu mutfağına uygun et ve gıda seçenekleri.",
+f2h:"Taze seçimler",
+f2p:"Günlük aile ihtiyaçları için meyve ve sebze.",
+f3h:"Doğu lezzetleri",
+f3p:"Baharat, pirinç, bakliyat, süt ürünleri ve Arap-Asya ürünleri.",
+contactTitle:"Neumünster'de bizi ziyaret edin",
+address:"Adres",
+hours:"Çalışma saatleri",
+phone:"Telefon",
+route:"🧭 Yol tarifi",
+mapOpen:"🗺️ Haritayı aç",
+footerText:"AMAR MARKT – Neumünster'de Arap ve Asya ürünleri.",
+quick:"Hızlı bağlantılar",
+follow:"Bizi takip edin",
+legal:"Tüm hakları saklıdır.",
+cartTitle:"Alışveriş sepeti",
+orderValue:"Sipariş tutarı (€)",
+orderType:"Teslim şekli",
+pickup:"Mağazadan teslim",
+delivery:"Teslimat",
+deliveryNotice:"Teslimat için sipariş tutarı en az 40 € olmalıdır.",
+name:"Ad Soyad",
+phoneField:"Telefon",
+addrField:"Adres",
+notes:"Notlar",
+sendFacebook:"Facebook ile iletişim",
+clear:"Sepeti temizle",
+orderNote:"Not: Ürün fiyatları varsayılan olarak eklenmedi. Sipariş tutarını gönderimden önce girin.",
+add:"Sepete ekle",
+price:"Mağaza fiyatı",
+empty:"Sepet boş.",
+items:"ürün",
+remove:"Sil"
+},
+
+de:{
+top:"AMAR MARKT – Arabische und asiatische Lebensmittel",
+home:"Startseite",
+about:"Über uns",
+shop:"Shop",
+media:"Fotos & Video",
+contact:"Kontakt",
+cart:"Warenkorb",
+welcome:"✨ Willkommen bei AMAR MARKT",
+heroTitle:"Beliebte Produkte aus der arabischen und orientalischen Küche",
+heroText:"Arabische und asiatische Lebensmittel, Halal-Fleisch, Obst & Gemüse sowie Milchprodukte.",
+browse:"🛒 Produkte ansehen",
+directions:"📍 Weg zum Markt",
+aboutTitle:"Ihr arabischer Markt in Neumünster",
+aboutText:"Arabische und asiatische Lebensmittel, Halal-Fleisch, Obst & Gemüse und Milchprodukte.",
+quality:"Große Auswahl für jeden Tag",
+qualityText:"Gewürze, Reis, Hülsenfrüchte und Halal-Fleisch für die tägliche Küche.",
+meat:"Halal-Fleisch",
+produce:"Obst & Gemüse",
+rice:"Reis & Hülsenfrüchte",
+dairy:"Milch & Käse",
+mediaTitle:"Unser Markt",
+mediaText:"Das Video wird automatisch angezeigt, wenn store-video.mp4 neben index.html liegt.",
+catTitle:"Nach Kategorie einkaufen",
+catText:"Kategorie anklicken, Produkte öffnen und in den Warenkorb legen.",
+popular:"Ausgewählte Produkte",
+search:"Produkt suchen...",
+why:"Warum AMAR MARKT?",
+f1h:"Halal-Produkte",
+f1p:"Fleisch und Lebensmittel passend zur orientalischen Küche.",
+f2h:"Frische Auswahl",
+f2p:"Obst, Gemüse und tägliche Produkte.",
+f3h:"Orientalische Auswahl",
+f3p:"Gewürze, Reis, Hülsenfrüchte, Milchprodukte und Spezialitäten.",
+contactTitle:"Besuchen Sie uns in Neumünster",
+address:"Adresse",
+hours:"Öffnungszeiten",
+phone:"Telefon",
+route:"🧭 Route starten",
+mapOpen:"🗺️ Karte öffnen",
+footerText:"AMAR MARKT – Ihr Markt für arabische und asiatische Lebensmittel.",
+quick:"Schnelllinks",
+follow:"Folgen Sie uns",
+legal:"Alle Rechte vorbehalten.",
+cartTitle:"Warenkorb",
+orderValue:"Bestellwert (€)",
+orderType:"Abholung / Lieferung",
+pickup:"Abholung im Markt",
+delivery:"Lieferung",
+deliveryNotice:"Für eine Lieferung muss der Bestellwert mindestens 40 € betragen.",
+name:"Name",
+phoneField:"Telefon",
+addrField:"Adresse",
+notes:"Notizen",
+sendFacebook:"Über Facebook kontaktieren",
+clear:"Warenkorb leeren",
+orderNote:"Hinweis: Es wurden keine Preise erfunden. Bitte den tatsächlichen Bestellwert eintragen.",
+add:"In den Warenkorb",
+price:"Preis im Laden",
+empty:"Der Warenkorb ist leer.",
+items:"Artikel",
+remove:"Entfernen"
+}
+};
+
+const PRODUCTS = [
+
+{
+category:"oils",
+ar:"زيت زيتون",
+tr:"Zeytinyağı",
+de:"Olivenöl",
+image:"https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=900&q=85"
+},
+
+{
+category:"oils",
+ar:"زيت دوار الشمس",
+tr:"Ayçiçek yağı",
+de:"Sonnenblumenöl",
+image:"https://images.unsplash.com/photo-1536638317174-07f8a0c4e8c2?auto=format&fit=crop&w=900&q=85"
+},
+
+{
+category:"oils",
+ar:"زيت الذرة",
+tr:"Mısır yağı",
+de:"Maisöl",
+image:"https://images.unsplash.com/photo-1600792118105-6b8f8e2e0b89?auto=format&fit=crop&w=900&q=85"
+},
+
+{
+category:"oils",
+ar:"زيت نباتي",
+tr:"Bitkisel yağ",
+de:"Pflanzenöl",
+image:"https://images.unsplash.com/photo-1620706857370-e1b9770e8bb1?auto=format&fit=crop&w=900&q=85"
+},
+
+{
+category:"spices",
+ar:"خلطة بهارات",
+tr:"Karışık baharat",
+de:"Gewürzmischung",
+image:"https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=900&q=85"
+},
+
+{
+category:"spices",
+ar:"كمون",
+tr:"Kimyon",
+de:"Kreuzkümmel",
+image:"https://images.unsplash.com/photo-1532336414038-cf19250c5757?auto=format&fit=crop&w=900&q=85"
+},
+
+{
+category:"spices",
+ar:"سماق",
+tr:"Sumak",
+de:"Sumach",
+image:"https://images.unsplash.com/photo-1606914469633-bd3927d5d9c7?auto=format&fit=crop&w=900&q=85"
+},
+
+{
+category:"spices",
+ar:"فلفل أسود",
+tr:"Karabiber",
+de:"Schwarzer Pfeffer",
+image:"https://images.unsplash.com/photo-1615485500704-8e990f9900f7?auto=format&fit=crop&w=900&q=85"
+},
+
+{
+category:"rice",
+ar:"أرز بسمتي",
+tr:"Basmati pirinç",
+de:"Basmati-Reis",
+image:"https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=900&q=85"
+},
+
+{
+category:"rice",
+ar:"عدس",
+tr:"Mercimek",
+de:"Linsen",
+image:"https://images.unsplash.com/photo-1551462147-ff29053bfc14?auto=format&fit=crop&w=900&q=85"
+},
+
+{
+category:"rice",
+ar:"حمص",
+tr:"Nohut",
+de:"Kichererbsen",
+image:"https://images.unsplash.com/photo-1515543904379-3d757afe72e4?auto=format&fit=crop&w=900&q=85"
+},
+
+{
+category:"rice",
+ar:"برغل",
+tr:"Bulgur",
+de:"Bulgur",
+image:"https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=900&q=85"
+},
+
+{
+category:"meat",
+ar:"لحم بقري حلال",
+tr:"Helal dana eti",
+de:"Halal Rindfleisch",
+image:"https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&w=900&q=85"
+},
+
+{
+category:"meat",
+ar:"دجاج حلال",
+tr:"Helal tavuk",
+de:"Halal Hähnchen",
+image:"https://images.unsplash.com/photo-1604503468506-a8da13d82791?auto=format&fit=crop&w=900&q=85"
+},
+
+{
+category:"meat",
+ar:"لحم مفروم",
+tr:"Kıyma",
+de:"Hackfleisch",
+image:"https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=900&q=85"
+},
+
+{
+category:"meat",
+ar:"قطع لحم",
+tr:"Et parçaları",
+de:"Fleischstücke",
+image:"https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?auto=format&fit=crop&w=900&q=85"
+}
+
+];
+
+const CATEGORIES = {
+
+oils:{
+ar:"الزيوت",
+tr:"Yağlar",
+de:"Öle",
+image:0
+},
+
+spices:{
+ar:"البهارات والتوابل",
+tr:"Baharatlar",
+de:"Gewürze",
+image:4
+},
+
+rice:{
+ar:"الأرز والبقوليات",
+tr:"Pirinç & Bakliyat",
+de:"Reis & Hülsenfrüchte",
+image:8
+},
+
+meat:{
+ar:"اللحوم الحلال",
+tr:"Helal Et",
+de:"Halal-Fleisch",
+image:12
+}
+
+};
+
+let language = localStorage.getItem("amarLang") || "ar";
+let cart = JSON.parse(localStorage.getItem("amarCart") || "[]");
+
+function t(key){
+  return TRANSLATIONS[language][key] ||
+         TRANSLATIONS.ar[key] ||
+         key;
+}
+
+function productName(product){
+  return product[language];
+}
+
+function saveCart(){
+  localStorage.setItem("amarCart",JSON.stringify(cart));
+  updateCartCount();
+}
+
+function updateCartCount(){
+  const count = cart.reduce((total,item)=>total + item.quantity,0);
+  document.getElementById("cartCount").textContent = count;
+}
+
+function productCard(index){
+
+  const product = PRODUCTS[index];
+
+  return `
+    <article class="product">
+
+      <div class="product-image">
+        <img
+          src="${product.image}"
+          alt="${productName(product)}"
+          loading="lazy"
+        >
+      </div>
+
+      <div class="product-body">
+
+        <h4>${productName(product)}</h4>
+
+        <p>${t("price")}</p>
+
+        <button
+          class="btn btn-dark"
+          type="button"
+          onclick="addToCart(${index})"
+        >
+          ＋ ${t("add")}
+        </button>
+
+      </div>
+
+    </article>
+  `;
+}
+
+function renderCategories(){
+
+  const container = document.getElementById("categories");
+
+  container.innerHTML = Object.entries(CATEGORIES)
+    .map(([id,category])=>{
+
+      const image = PRODUCTS[category.image].image;
+
+      return `
+        <button
+          class="category"
+          type="button"
+          onclick="openCategory('${id}')"
+        >
+
+          <img
+            src="${image}"
+            alt="${category[language]}"
+            loading="lazy"
+          >
+
+          <div class="category-content">
+            <h3>${category[language]}</h3>
+            <p>
+              4 ${t("items")}
+            </p>
+          </div>
+
+        </button>
+      `;
+
+    })
+    .join("");
+}
+
+function renderProducts(indices){
+
+  document.getElementById("products").innerHTML =
+    indices.length
+    ? indices.map(productCard).join("")
+    : `<div class="empty">${t("empty")}</div>`;
+
+}
+
+function renderAllProducts(){
+
+  renderProducts(PRODUCTS.map((_,index)=>index));
+
+}
+
+function openCategory(categoryId){
+
+  const category = CATEGORIES[categoryId];
+
+  document.getElementById("modalTitle").textContent =
+    category[language];
+
+  const indices = PRODUCTS
+    .map((product,index)=>product.category === categoryId ? index : null)
+    .filter(index=>index !== null);
+
+  document.getElementById("modalProducts").innerHTML =
+    indices.map(productCard).join("");
+
+  showModal("productModal");
+
+}
+
+function addToCart(index){
+
+  const existing = cart.find(item=>item.index === index);
+
+  if(existing){
+    existing.quantity++;
+  }else{
+    cart.push({
+      index:index,
+      quantity:1
+    });
+  }
+
+  saveCart();
+  renderCart();
+
+}
+
+function changeQuantity(index,direction){
+
+  const item = cart.find(item=>item.index === index);
+
+  if(!item)return;
+
+  item.quantity += direction;
+
+  if(item.quantity <= 0){
+    cart = cart.filter(item=>item.index !== index);
+  }
+
+  saveCart();
+  renderCart();
+
+}
+
+function removeFromCart(index){
+
+  cart = cart.filter(item=>item.index !== index);
+
+  saveCart();
+  renderCart();
+
+}
+
+function renderCart(){
+
+  const container = document.getElementById("cartList");
+
+  if(!cart.length){
+
+    container.innerHTML =
+      `<div class="empty">${t("empty")}</div>`;
+
+    return;
+  }
+
+  container.innerHTML = cart.map(item=>{
+
+    const product = PRODUCTS[item.index];
+
+    return `
+      <div class="cart-row">
+
+        <img
+          src="${product.image}"
+          alt="${productName(product)}"
+        >
+
+        <div>
+          <b>${productName(product)}</b>
+          <small>${t("price")}</small>
+        </div>
+
+        <div class="qty">
+
+          <button
+            type="button"
+            onclick="changeQuantity(${item.index},-1)"
+          >
+            −
+          </button>
+
+          <b>${item.quantity}</b>
+
+          <button
+            type="button"
+            onclick="changeQuantity(${item.index},1)"
+          >
+            ＋
+          </button>
+
+          <button
+            type="button"
+            class="remove"
+            onclick="removeFromCart(${item.index})"
+            title="${t("remove")}"
+          >
+            🗑
+          </button>
+
+        </div>
+
+      </div>
+    `;
+
+  }).join("");
+
+}
+
+function showModal(id){
+
+  document.getElementById(id).classList.add("show");
+  document.body.classList.add("modal-open");
+
+}
+
+function closeModal(id){
+
+  document.getElementById(id).classList.remove("show");
+
+  if(!document.querySelector(".modal.show")){
+    document.body.classList.remove("modal-open");
+  }
+
+}
+
+function applyLanguage(){
+
+  document.querySelectorAll("[data-t]").forEach(element=>{
+    element.textContent = t(element.dataset.t);
+  });
+
+  document.querySelectorAll("[data-ph]").forEach(element=>{
+    element.placeholder = t(element.dataset.ph);
+  });
+
+  document.querySelectorAll("[data-lang]").forEach(button=>{
+    button.classList.toggle(
+      "active",
+      button.dataset.lang === language
+    );
+  });
+
+  document.documentElement.lang = language;
+  document.documentElement.dir =
+    language === "ar" ? "rtl" : "ltr";
+
+  renderCategories();
+  renderAllProducts();
+  renderCart();
+
+}
+
+document.querySelectorAll("[data-lang]").forEach(button=>{
+
+  button.addEventListener("click",()=>{
+
+    language = button.dataset.lang;
+
+    localStorage.setItem("amarLang",language);
+
+    applyLanguage();
+
+  });
+
+});
+
+document.getElementById("search").addEventListener("input",event=>{
+
+  const query = event.target.value.trim().toLowerCase();
+
+  if(!query){
+    renderAllProducts();
+    return;
+  }
+
+  const results = PRODUCTS
+    .map((product,index)=>({product,index}))
+    .filter(({product})=>
+      [product.ar,product.tr,product.de]
+        .some(name=>name.toLowerCase().includes(query))
+    )
+    .map(({index})=>index);
+
+  renderProducts(results);
+
+});
+
+document.getElementById("cartBtn").addEventListener("click",()=>{
+
+  renderCart();
+  showModal("cartModal");
+
+});
+
+document.querySelectorAll("[data-close]").forEach(button=>{
+
+  button.addEventListener("click",()=>{
+
+    closeModal(button.dataset.close);
+
+  });
+
+});
+
+document.querySelectorAll(".modal").forEach(modal=>{
+
+  modal.addEventListener("click",event=>{
+
+    if(event.target === modal){
+      closeModal(modal.id);
+    }
+
+  });
+
+});
+
+document.addEventListener("keydown",event=>{
+
+  if(event.key === "Escape"){
+
+    document.querySelectorAll(".modal.show")
+      .forEach(modal=>closeModal(modal.id));
+
+  }
+
+});
+
+document.getElementById("clearCart").addEventListener("click",()=>{
+
+  cart = [];
+
+  saveCart();
+  renderCart();
+
+});
+
+document.getElementById("orderType").addEventListener("change",event=>{
+
+  const notice = document.getElementById("deliveryNotice");
+
+  notice.classList.toggle(
+    "hidden",
+    event.target.value !== "delivery"
+  );
+
+});
+
+document.getElementById("facebookOrder").addEventListener("click",()=>{
+
+  if(!cart.length){
+
+    alert(t("empty"));
+    return;
+
+  }
+
+  const orderValue =
+    Number(document.getElementById("orderValue").value || 0);
+
+  const orderType =
+    document.getElementById("orderType").value;
+
+  if(orderType === "delivery" && orderValue < 40){
+
+    document
+      .getElementById("deliveryNotice")
+      .classList.remove("hidden");
+
+    return;
+
+  }
+
+  const name =
+    document.getElementById("customerName").value.trim();
+
+  const phone =
+    document.getElementById("customerPhone").value.trim();
+
+  const address =
+    document.getElementById("customerAddress").value.trim();
+
+  const notes =
+    document.getElementById("customerNotes").value.trim();
+
+  const deliveryText =
+    orderType === "delivery"
+      ? t("delivery")
+      : t("pickup");
+
+  const items = cart.map(item=>{
+
+    const product = PRODUCTS[item.index];
+
+    return `${productName(product)} × ${item.quantity}`;
+
+  }).join("\n");
+
+  const message =
+`AMAR MARKT – Bestellung
+
+Produkte:
+${items}
+
+Bestellwert: €${orderValue.toFixed(2)}
+Art: ${deliveryText}
+
+Name: ${name || "-"}
+Telefon: ${phone || "-"}
+Adresse: ${address || "-"}
+Notizen: ${notes || "-"}
+
+AMAR MARKT
+Kuhberg 12
+24534 Neumünster
++49 1578 1160149`;
+
+  const facebookUrl =
+    "https://www.facebook.com/alfayhaa.market/?message=" +
+    encodeURIComponent(message);
+
+  window.open(
+    facebookUrl,
+    "_blank",
+    "noopener,noreferrer"
+  );
+
+});
+
+document.getElementById("menuBtn").addEventListener("click",()=>{
+
+  document.getElementById("nav").classList.toggle("mobile-open");
+
+});
+
+document.querySelectorAll(".nav-links a").forEach(link=>{
+
+  link.addEventListener("click",()=>{
+
+    document.getElementById("nav")
+      .classList.remove("mobile-open");
+
+  });
+
+});
+
+document.getElementById("year").textContent =
+  new Date().getFullYear();
+
+applyLanguage();
+updateCartCount();
+</script>
+
+</body>
+</html>
+index.html
+logo.png
+store-hero.jpg
+store-video.mp4
+git add .
+git commit -m "AMAR MARKT complete website"
+git push origin main
